@@ -36,6 +36,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:background="@android:color/transparent"
+                android:textColor="@android:color/holo_red_light"
                 android:text="C" />
 
             <Button
@@ -43,6 +45,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:background="@android:color/transparent"
+                android:textColor="@android:color/black"
                 android:text="DEL" />
 
             <Button
@@ -50,6 +54,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:background="@android:color/transparent"
+                android:textColor="@android:color/holo_blue_light"
                 android:text="%" />
 
             <Button
@@ -57,6 +63,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:background="@android:color/transparent"
+                android:textColor="@android:color/holo_blue_light"
                 android:text="/" />
         </TableRow>
 
@@ -69,6 +77,8 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:background="@android:color/transparent"
+                android:textColor="@android:color/black"
                 android:text="7" />
 
             <Button
@@ -76,6 +86,8 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:background="@android:color/transparent"
+                android:textColor="@android:color/black"
                 android:text="8" />
 
             <Button
@@ -83,6 +95,8 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:background="@android:color/transparent"
+                android:textColor="@android:color/black"
                 android:text="9" />
 
             <Button
@@ -90,6 +104,8 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:background="@android:color/transparent"
+                android:textColor="@android:color/holo_blue_light"
                 android:text="*" />
         </TableRow>
 
@@ -102,6 +118,8 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:background="@android:color/transparent"
+                android:textColor="@android:color/black"
                 android:text="4" />
 
             <Button
@@ -109,6 +127,8 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:background="@android:color/transparent"
+                android:textColor="@android:color/black"
                 android:text="5" />
 
             <Button
@@ -116,6 +136,8 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:background="@android:color/transparent"
+                android:textColor="@android:color/black"
                 android:text="6" />
 
             <Button
@@ -123,6 +145,8 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:background="@android:color/transparent"
+                android:textColor="@android:color/holo_blue_light"
                 android:text="-" />
         </TableRow>
 
@@ -135,6 +159,8 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:background="@android:color/transparent"
+                android:textColor="@android:color/black"
                 android:text="1" />
 
             <Button
@@ -142,6 +168,8 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:background="@android:color/transparent"
+                android:textColor="@android:color/black"
                 android:text="2" />
 
             <Button
@@ -149,6 +177,8 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:background="@android:color/transparent"
+                android:textColor="@android:color/black"
                 android:text="3" />
 
             <Button
@@ -156,6 +186,8 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:background="@android:color/transparent"
+                android:textColor="@android:color/holo_blue_light"
                 android:text="+" />
         </TableRow>
 
@@ -168,6 +200,8 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:background="@android:color/transparent"
+                android:textColor="@android:color/black"
                 android:text="+/-" />
 
             <Button
@@ -175,6 +209,8 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:background="@android:color/transparent"
+                android:textColor="@android:color/black"
                 android:text="0" />
 
             <Button
@@ -182,6 +218,8 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:background="@android:color/transparent"
+                android:textColor="@android:color/black"
                 android:text="," />
 
             <Button
@@ -189,6 +227,8 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:background="@android:color/holo_blue_light"
+                android:textColor="@android:color/white"
                 android:text="=" />
         </TableRow>
     </TableLayout>

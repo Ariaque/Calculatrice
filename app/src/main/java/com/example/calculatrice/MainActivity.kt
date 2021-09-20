@@ -1,5 +1,8 @@
 package com.example.calculatrice
 
+import android.content.ClipData
+import android.content.ClipboardManager
+import android.content.Context
 import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
@@ -17,13 +20,13 @@ class MainActivity : AppCompatActivity() {
 
     //variable contenant toute l'operation
     private var operation: String = ""
-    //preferences partagées
-    //private var old_data : SharedPreferences = d
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+     //Constante du presse papier
+        val cp =getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
     //Lecture des données sauvegarder
         val old_data = this.getSharedPreferences("old_data",0)
          if(old_data != null){
@@ -32,6 +35,8 @@ class MainActivity : AppCompatActivity() {
              operateur = old_data.getString("operateur","").toString()
              operation = old_data.getString("operation","").toString()
          }
+    //objet pour le presse papier
+
 
         val ecran: TextView = findViewById(R.id.ecran)
         val b0: Button = findViewById(R.id.btn0)
@@ -54,6 +59,7 @@ class MainActivity : AppCompatActivity() {
         val bvirgule = findViewById<Button>(R.id.btnComa)
         val bsigne = findViewById<Button>(R.id.btnSigne)
         val bresult = findViewById<Button>(R.id.btnResult)
+        val bans = findViewById<Button>(R.id.btn_ans)
 
         ecran.text = operation
         // Ecouteur du bouton 0
@@ -176,8 +182,24 @@ class MainActivity : AppCompatActivity() {
         // Ecouteur du bouton resultat
         bresult.setOnClickListener {
             calcul()
+            //copier le resultat dans le presse papier
+            val clip : ClipData =  ClipData.newPlainText("resultat",operation)
+            cp.setPrimaryClip(clip)
             ecran.text = operation
             operation = ""
+        }
+
+        //Ecoute du bouton ans
+        bans.setOnClickListener{
+            //Recuperation de la variable presse papier
+            val cd:ClipData? = cp.primaryClip
+           //Si la variable presse papier n'est pas vide recuperer le contenu à la premiere position
+            cd?.apply {
+                val textToPaste:String = this.getItemAt(0).text.toString().trim()
+                ecran.text=textToPaste
+                operation=textToPaste
+                op1=textToPaste
+            }
         }
     }
 
@@ -251,6 +273,7 @@ class MainActivity : AppCompatActivity() {
                 op1 = ""
                 op2 = ""
                 operateur = ""
+
             }
             "-" -> {
                 res = op1.toDouble() - op2.toDouble()
@@ -278,6 +301,7 @@ class MainActivity : AppCompatActivity() {
                     op2 = ""
                     operateur = ""
                     operation = "Erreur arithmetic"
+
                 }
 
             }

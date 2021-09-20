@@ -1,5 +1,6 @@
 package com.example.calculatrice
 
+import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
@@ -17,11 +18,22 @@ class MainActivity : AppCompatActivity() {
 
     //variable contenant toute l'operation
     private var operation: String = ""
+    //preferences partagées
+    //private var old_data : SharedPreferences = d
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+    //Lecture des données sauvegarder
+        val old_data = this.getSharedPreferences("old_data",0)
+         if(old_data != null){
+             op1 = old_data.getString("op1","").toString()
+             op2 = old_data.getString("op2","").toString()
+             operateur = old_data.getString("operateur","").toString()
+             operation = old_data.getString("operation","").toString()
+         }
+
         val ecran: TextView = findViewById<TextView>(R.id.ecran)
         val b0: Button = findViewById<Button>(R.id.btn0)
         val b1: Button = findViewById<Button>(R.id.btn1)
@@ -43,6 +55,8 @@ class MainActivity : AppCompatActivity() {
         val bvirgule = findViewById<Button>(R.id.btnComa)
         val bsigne = findViewById<Button>(R.id.btnSigne)
         val bresult = findViewById<Button>(R.id.btnResult)
+
+        ecran.setText(operation)
         // Ecouteur du bouton 0
         val btn0 = b0.setOnClickListener {
             btn("0")
@@ -276,5 +290,17 @@ class MainActivity : AppCompatActivity() {
                 operateur = ""
             }
         }
+    }
+
+    override fun onStop(){
+        super.onStop()
+        //creation et ecriture des données partagées
+        val old_operation = this.getSharedPreferences("old_data",0)
+        val editor = old_operation.edit()
+        editor.putString("op1",op1)
+        editor.putString("op2",op1)
+        editor.putString("operateur",operateur)
+        editor.putString("operation",operation)
+        editor.apply()
     }
 }

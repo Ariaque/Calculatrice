@@ -1,10 +1,9 @@
 package com.example.calculatrice
 
-import android.content.SharedPreferences
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
 
 class MainActivity : AppCompatActivity() {
     //variable pour stocker le signe
@@ -34,9 +33,9 @@ class MainActivity : AppCompatActivity() {
              operation = old_data.getString("operation","").toString()
          }
 
-        val ecran: TextView = findViewById<TextView>(R.id.ecran)
-        val b0: Button = findViewById<Button>(R.id.btn0)
-        val b1: Button = findViewById<Button>(R.id.btn1)
+        val ecran: TextView = findViewById(R.id.ecran)
+        val b0: Button = findViewById(R.id.btn0)
+        val b1: Button = findViewById(R.id.btn1)
         val b2 = findViewById<Button>(R.id.btn2)
         val b3 = findViewById<Button>(R.id.btn3)
         val b4 = findViewById<Button>(R.id.btn4)
@@ -56,135 +55,135 @@ class MainActivity : AppCompatActivity() {
         val bsigne = findViewById<Button>(R.id.btnSigne)
         val bresult = findViewById<Button>(R.id.btnResult)
 
-        ecran.setText(operation)
+        ecran.text = operation
         // Ecouteur du bouton 0
-        val btn0 = b0.setOnClickListener {
+        b0.setOnClickListener {
             btn("0")
-            ecran.setText(operation)
+            ecran.text = operation
         }
 
         // Ecouteur du bouton 1
-        val btn1 = b1.setOnClickListener {
+        b1.setOnClickListener {
             btn("1")
-            ecran.setText(operation)
+            ecran.text = operation
         }
 
         // Ecouteur du bouton 2
-        val btn2 = b2.setOnClickListener {
+        b2.setOnClickListener {
             btn("2")
-            ecran.setText(operation)
+            ecran.text = operation
         }
 
         // Ecouteur du bouton 3
-        val btn3 = b3.setOnClickListener {
+        b3.setOnClickListener {
             btn("3")
-            ecran.setText(operation)
+            ecran.text = operation
         }
 
         // Ecouteur du bouton 4
-        val btn4 = b4.setOnClickListener {
+        b4.setOnClickListener {
             btn("4")
-            ecran.setText(operation)
+            ecran.text = operation
         }
 
         // Ecouteur du bouton 5
-        val btn5 = b5.setOnClickListener {
+        b5.setOnClickListener {
             btn("5")
-            ecran.setText(operation)
+            ecran.text = operation
         }
 
         // Ecouteur du bouton 6
-        val btn6 = b6.setOnClickListener {
+        b6.setOnClickListener {
             btn("6")
-            ecran.setText(operation)
+            ecran.text = operation
         }
 
         // Ecouteur du bouton 7
-        val btn7 = b7.setOnClickListener {
+        b7.setOnClickListener {
             btn("7")
-            ecran.setText(operation)
+            ecran.text = operation
         }
 
         // Ecouteur du bouton 8
-        val btn8 = b8.setOnClickListener {
+        b8.setOnClickListener {
             btn("8")
-            ecran.setText(operation)
+            ecran.text = operation
         }
 
         // Ecouteur du bouton 9
-        val btn9 = b9.setOnClickListener {
+        b9.setOnClickListener {
             btn("9")
-            ecran.setText(operation)
+            ecran.text = operation
         }
 
         // Ecouteur du bouton Plus
-        val btnadd = badd.setOnClickListener {
+        badd.setOnClickListener {
             signe("+")
-            ecran.setText(operation)
+            ecran.text = operation
         }
 
         // Ecouteur du bouton Moins
-        val btnminus = bminus.setOnClickListener {
+        bminus.setOnClickListener {
             signe("-")
-            ecran.setText(operation)
+            ecran.text = operation
         }
 
         // Ecouteur du bouton multiplication
-        val btnmulti = bmulti.setOnClickListener {
+        bmulti.setOnClickListener {
             signe("*")
-            ecran.setText(operation)
+            ecran.text = operation
         }
 
         // Ecouteur du bouton Division
-        val btndivis = bdivis.setOnClickListener {
+        bdivis.setOnClickListener {
             signe("/")
-            ecran.setText(operation)
+            ecran.text = operation
         }
 
         // Ecouteur du bouton modulo
-        val btnmodulo = bmodulo.setOnClickListener {
+        bmodulo.setOnClickListener {
             signe("%")
-            ecran.setText(operation)
+            ecran.text = operation
         }
 
         // Ecouteur du bouton reset
-        val btnreset = breset.setOnClickListener {
+        breset.setOnClickListener {
             operateur = ""
             op1 = ""
             op2 = ""
             operation = ""
-            ecran.setText(operation)
+            ecran.text = operation
         }
 
         // Ecouteur du bouton delete
-        val btndelete = bdel.setOnClickListener {
+        bdel.setOnClickListener {
             delete()
-            ecran.setText(operation)
+            ecran.text = operation
         }
 
         // Ecouteur du bouton virgule
-        val btnvirgule = bvirgule.setOnClickListener {
+        bvirgule.setOnClickListener {
             btn(".")
-            ecran.setText(operation)
+            ecran.text = operation
         }
 
         // Ecouteur du bouton signe
-        val btnsigne = bsigne.setOnClickListener {
+        bsigne.setOnClickListener {
             changer()
-            ecran.setText(operation)
+            ecran.text = operation
         }
 
         // Ecouteur du bouton resultat
-        val btnresult = bresult.setOnClickListener {
+        bresult.setOnClickListener {
             calcul()
-            ecran.setText(operation)
+            ecran.text = operation
             operation = ""
         }
     }
 
 
     //methode pour la valeur des boutons
-    fun btn(valeur: String) {
+    private fun btn(valeur: String) {
         if (operateur.isEmpty()) {
             op1 += valeur
             operation += valeur
@@ -195,7 +194,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     //methode pour l'operateur
-    fun signe(operande: String) {
+    private fun signe(operande: String) {
         if (operation.contains("+")
             || operation.contains("-")
             || operation.contains("*")
@@ -215,8 +214,8 @@ class MainActivity : AppCompatActivity() {
     }
 
     //methode pour supprimer le dernier element
-    fun delete() {
-        if (!operateur.isEmpty()) {
+    private fun delete() {
+        if (operateur.isNotEmpty()) {
             if (op2.isEmpty()) {
                 operateur = ""
                 //operation = operation.replace(operateur,"")
@@ -232,8 +231,8 @@ class MainActivity : AppCompatActivity() {
     }
 
     //methode pour changer de signe
-    fun changer() {
-        if (!operateur.isEmpty()) {
+    private fun changer() {
+        if (operateur.isNotEmpty()) {
             op2 = "(-$op2)"
             operation = op1 + operateur + op2
         } else {
@@ -243,8 +242,8 @@ class MainActivity : AppCompatActivity() {
     }
 
     //methode pour la valeur des calculs
-    fun calcul() {
-        var res: Double = 0.0
+    private fun calcul() {
+        val res: Double
         when (operateur) {
             "+" -> {
                 res = op1.toDouble() + op2.toDouble()

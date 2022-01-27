@@ -184,7 +184,9 @@ class MainActivity : AppCompatActivity() {
             calcul()
             //copier le resultat dans le presse papier
             val clip: ClipData = ClipData.newPlainText("resultat", operation)
+
             cp.setPrimaryClip(clip)
+            //println(cp.primaryClip)
             ecran.text = operation
             operation = ""
         }
